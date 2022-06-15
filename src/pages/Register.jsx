@@ -68,9 +68,12 @@ const Register = () => {
                 if (value && getFieldValue('password') === value) {
                   return Promise.resolve();
                 }
-                throw new Error(
+                return Promise.reject(
                   'The two passwords that you entered do not match!'
                 );
+                // throw new Error(
+                //   'The two passwords that you entered do not match!'
+                // );
               }
             })
           ]}>

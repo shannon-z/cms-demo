@@ -7,6 +7,12 @@ const options = {
 
 const instance = axios.create(options)
 instance.interceptors.request.use(req => {
+  let token = localStorage.getItem('cms-token')
+  if (token) {
+    req.headers = {
+      'cms-token': token
+    }
+  }
   return req
 }, err => {
   return Promise.reject(err)
